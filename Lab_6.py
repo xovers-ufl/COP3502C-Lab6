@@ -1,6 +1,9 @@
+# Xavier Overs
+import decode
+
 def print_menu():
     """Prints the menu options"""
-    print('Menu'
+    print('\nMenu'
           '\n-------------'
           '\n1. Encode'
           '\n2. Decode'
@@ -12,7 +15,7 @@ def encode(string):
     After passing the password into the encoder, the encoder stores the encoded
     password to a new variable, with each digit being shifted up by 3 numbers."""
 
-    encoded_string = '' # declare global string variable
+    encoded_string = ''  # declare global string variable
 
     for i in range(len(string)):
         if string[i] == '0':
@@ -39,22 +42,20 @@ def encode(string):
     return encoded_string
 
 
-def decode():
-    """decreases every digit by 3"""
-    pass
-
-
 def main():
-
     user_menu_option = None
 
     while user_menu_option != '3':
         print_menu()
+        user_menu_option = input('\nPlease enter an option: ')
 
+        if user_menu_option == '1':
+            user_password = input('Please enter your password to encode: ')
+            if user_password:
+                print('Your password has been encoded and stored!')
 
-
-        user_menu_option = input('Please enter an option: ')
-
+        if user_menu_option == '2':
+            print(f'The encoded password is {encode(user_password)}, and the original password is {decode.decode(encode(user_password))}.')
 
 
 if __name__ == '__main__':
